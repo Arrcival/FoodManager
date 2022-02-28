@@ -1,0 +1,36 @@
+﻿<Window x:Class="FoodManager.Windows.DisplayRecipeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodManager.Windows"
+        mc:Ignorable="d"
+        Title="Recette : " Height="450" Width="600">
+    <StackPanel Margin="10">
+        <TextBlock Name="recipeName" Text="RECETTE NAME" FontSize="18" FontWeight="Bold"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" >
+                <TextBlock Text="Ingrédients" FontSize="16" />
+                <TextBlock Name="ingredientList"  Text="Blablabla" />
+            </StackPanel>           
+            <Image Name="recipeImage" Source="{Binding Image}"  Grid.Column="1" Width="150" Height="150"/>
+        </Grid>
+        <TextBlock FontSize="16" Text="How to :" />
+        <TextBox Name="instructions" FontSize="12" Text="Comment faire" Padding="0 0 0 5"/>
+
+        <Grid VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Cuisiner" Margin="5" FontSize="16"/>
+            <Button Grid.Column="1" Content="Ajouter à une liste de recettes" Margin="5" FontSize="16"/>
+        </Grid>
+        
+    </StackPanel>
+</Window>

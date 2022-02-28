@@ -1,0 +1,43 @@
+﻿<Window x:Class="FoodManager.Windows.DisplayStockageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodManager.Windows"
+        mc:Ignorable="d"
+        Title="Ingrédients stockés" Height="450" Width="700">
+    <StackPanel>
+        <!--
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Ajouter :" FontSize="16" Grid.Column="0" HorizontalAlignment="Right" Margin="0 0 10 0" Padding="0 10 0 10"/>
+            <ComboBox Name="foodDropdown" Grid.Column="1" Width="280" HorizontalAlignment="Left" Margin="10 5 0 5"  FontSize="16"
+                      ItemsSource="{Binding Food}"
+                      DisplayMemberPath="Name"
+                      IsReadOnly="True"
+                      />
+            <TextBlock Text="✓" Grid.Column="2" FontSize="30" HorizontalAlignment="Left" 
+                       Margin="10 0" Foreground="Green"
+                       Name="addFoodText" MouseLeftButtonDown="addFoodText_MouseLeftButtonDown"/>
+        </Grid> -->
+        
+        
+        
+        <DataGrid Name="dgFood" AutoGenerateColumns="False" IsReadOnly="True" EnableRowVirtualization="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ingrédient" Width="*" Binding="{Binding Name}" FontSize="14"/>
+                <DataGridTextColumn Header="Date de péremption" Width="150" Binding="{Binding PeremptionDateDisplay}" FontSize="14"/>
+                <DataGridTextColumn Header="Quantité" Width="80" Binding="{Binding DisplayQuantity}" FontSize="14"/>
+                <DataGridTextColumn Header="Sauvegarder" Width="80"/>
+                <DataGridTextColumn Header="Supprimer" Width="80"/>
+                <DataGridTextColumn Visibility="Hidden" Header="ID" Binding="{Binding ID}" FontSize="14"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+    
+</Window>

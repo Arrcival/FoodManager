@@ -1,0 +1,59 @@
+﻿<Window x:Class="FoodManager.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodManager.Windows"
+        mc:Ignorable="d"
+        Title="Food Manager" Height="450" Width="600"
+        Closing="Window_Closing">
+    <Border Margin="10">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+
+                <Button x:Name="stockageButton" Grid.Column="0" Content="Afficher les ingrédients" Padding="10" FontSize="18" Click="stockageButton_Click"/>
+                <Button x:Name="coursesButton" Grid.Column="1" Content="Faire les courses !" Padding="10" FontSize="18" Click="coursesButton_Click"/>
+
+                <Button x:Name="searchButton" Grid.Column="0" Grid.Row="1" Content="Recherche de recette" Padding="10" FontSize="18" Margin="0 10" Click="searchButton_Click"/>
+                <Button x:Name="multiRecipesButton" Grid.Column="1" Grid.Row="1" Content="Choisir plusieurs recettes" Padding="10" FontSize="18" Margin="0 10"/>
+            </Grid>
+
+            <TextBlock x:Name="textBlock"/>
+            <Separator Margin="0 10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+
+                <Button x:Name="addRecipeButton" Grid.Column="1" Content="Ajout de recette" FontSize="16" Padding="5" Margin="0 2"/>
+                <Button x:Name="addIngredientButton" Grid.Row="1" Grid.Column="1" Content="Ajout d'ingrédient" FontSize="16"  Padding="5" Margin="0 2"/>
+                <Button x:Name="addUnitButton" Grid.Row="2" Grid.Column="1" Content="Ajout d'unité" FontSize="16"  Padding="5" Margin="0 2"/>
+                
+                <Button x:Name="displayAllFood" Grid.Row="3" Grid.Column="1" Content="Afficher tous les ingrédients"
+                        FontSize="16"  Padding="5" Margin="0 2" Click="displayFood_Click"/>
+            </Grid>
+
+        </StackPanel>
+
+    </Border>
+</Window>
