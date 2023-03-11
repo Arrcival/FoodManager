@@ -1,25 +1,18 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace FoodManager.Entities
 {
-    [Collection("StockedFood")]
-    public class StockedFood : Entity
+    public class OwnedFood
     {
 
-        [ObjectId]
         public string FoodID { get; set; }
-
-        
-        public Food Food = null;
+                
         public DateTime PeremptionDate { get; set; }
         public double Amount { get; set; }
+
+        [JsonIgnore]
+        public Food Food { get; set; }
 
         public string PeremptionDateDisplay { get { return PeremptionDate.ToString("dd/MM/yyyy"); } }
         public string DisplayQuantity

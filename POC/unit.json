@@ -1,0 +1,12 @@
+[
+    {
+        "UnitId": 1,
+        "NameUnit": "gramme",
+        "DisplayedUnit": "g"
+    },
+    {
+        "UnitId": 2,
+        "NameUnit": "kilogramme",
+        "DisplayedUnit": "kg"
+    }
+]

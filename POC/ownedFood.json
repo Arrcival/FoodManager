@@ -1,0 +1,12 @@
+[
+    {
+        "FoodId": 1,
+        "Amount": 4,
+        "PeremptionDate": "2022-01-01"
+    },
+    {
+        "FoodId": 3,
+        "Amount": 400,
+        "PeremptionDate": "2022-01-01"
+    }
+]

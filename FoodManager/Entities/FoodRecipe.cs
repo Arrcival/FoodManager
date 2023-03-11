@@ -1,29 +1,29 @@
-﻿using MongoDB.Entities;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace FoodManager.Entities
 {
-    [Collection("FoodRecipe")]
-    public class FoodRecipe : Entity
+    public class FoodRecipe
     {
-        [ObjectId]
-        public string RecipeID { get; set; }
-        public Recipe Recipe;
+        public int Id { get; set; }
+        public int Amount { get; set; }
 
-        [ObjectId]
-        public string FoodID { get; set; }
-        public Food Food;
 
-        public double Amount { get; set; }
+        [JsonIgnore]
+        public Food Food { get; set; }
+
+        public void Load()
+        {
+            Food = Database.Foods.First(food => food.Id == Id);
+        }
+
 
         public string DisplayIngredient
         {
             get
             {
+                Food.Load();
                 return $"{Amount}{Food?.Unit?.DisplayedUnit} {Food?.Name}" + Environment.NewLine;
             }
         }

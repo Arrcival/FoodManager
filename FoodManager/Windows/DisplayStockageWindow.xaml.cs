@@ -38,10 +38,9 @@ namespace FoodManager.Windows
             foodDropdown.IsReadOnly = true;
         }*/
 
-        private async void AlimentGrid()
+        private void AlimentGrid()
         {
-            List<StockedFood> foodList = await DAL.GetAllStockedFood();
-            dgFood.ItemsSource = foodList;
+            dgFood.ItemsSource = Database.OwnedFoods;
 
 
             /*

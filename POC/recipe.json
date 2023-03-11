@@ -1,0 +1,25 @@
+[
+    {
+        "Name": "Chorba",
+        "Portions": 2,
+        "Image": "bla.png",
+        "Description": "blablabla",
+        "PreparationTime": 50,
+        "CuissonTime": 30,
+        "Note": 9,
+        "Instructions": [
+            "do that",
+            "do this"
+        ],
+        "Ingredients": [
+            {
+                "Id": 1,
+                "Quantity": 100
+            },
+            {
+                "Id": 2,
+                "Quantity": 300
+            }
+        ]
+    }
+]

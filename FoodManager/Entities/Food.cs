@@ -1,31 +1,56 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Entities;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace FoodManager.Entities
 {
-    [Collection("Food")]
-    public class Food : Entity
+    public class Food
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-
-        [ObjectId]
-        public string UnitID { get; set; }
-
-        //[BsonIgnoreIfNull]
-        public FoodUnit Unit;
-
-        public double AveragePrice { get; set; }
         public string Image { get; set; }
+
+
+        public int UnitId { get; set; }
+
+        [JsonIgnore]
+        public Unit Unit;
+
+        public double? PricePerUnit { get; set; }
+        public double? WeightPerUnit { get; set; }
+        public bool PriceAccurate { get; set; }
+
+        public double? PricePerKg { get; set; }
+
+        [JsonIgnore]
+        bool _loaded = false;
+
+        [JsonIgnore]
+        public double Price
+        {
+            get
+            {
+                if (PricePerUnit != null) return PricePerUnit.Value;
+                else if (PricePerKg != null && WeightPerUnit != null)
+                {
+                    return WeightPerUnit.Value / 1000 * PricePerKg.Value;
+                }
+                return 0;
+            }
+        }
 
         public Food(string name)
         {
             Name = name;
+        }
+
+        public void Load()
+        {
+            if(!_loaded)
+            {
+                Unit = Database.Units.FirstOrDefault(u => u.UnitId == UnitId);
+                _loaded = true;
+            }
         }
     }
 }

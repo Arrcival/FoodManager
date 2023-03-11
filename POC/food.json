@@ -1,0 +1,12 @@
+[
+    {
+        "Id": 1,
+        "Name": "Carotte",
+        "Image": "image.png",
+        "UnitId": 1,
+        "WeightPerUnit": 80,
+        "PriceAccurate": false,
+        "PricePerUnit": 0.3,
+        "PricePerKg": 2
+    }
+]

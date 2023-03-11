@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodManager.Windows"
         mc:Ignorable="d"
-        Title="Ingrédients stockés" Height="450" Width="700">
+        Title="Ingrédients connus" Height="450" Width="700">
     <StackPanel>
         <DataGrid Name="dgFood" AutoGenerateColumns="False" IsReadOnly="True" EnableRowVirtualization="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ingrédient" Width="*" Binding="{Binding Name}" FontSize="14"/>
                 <DataGridTextColumn Header="Unité" Width="150" Binding="{Binding Unit}" FontSize="14"/>
-                <DataGridTextColumn Header="Prix/unité" Width="80" Binding="{Binding AveragePrice}" FontSize="14"/>
+                <DataGridTextColumn Header="Prix/unité" Width="80" Binding="{Binding Price}" FontSize="14"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
