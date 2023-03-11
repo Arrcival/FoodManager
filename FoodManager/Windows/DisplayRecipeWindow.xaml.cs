@@ -15,8 +15,7 @@ namespace FoodManager.Windows
         {
             InitializeComponent();
             recipe = aRecipe;
-            if(recipe != null)
-                DisplayRecipe();
+            DisplayRecipe();
         }
 
 
@@ -28,7 +27,6 @@ namespace FoodManager.Windows
 
                 Title += recipe.Name;
                 recipeName.Text = recipe.Name;
-                recipeImage.Source = new BitmapImage(new Uri(recipe.Image));
                 ingredientList.Text = recipe.DisplayIngredients;
                 instructions.Text = string.Join(Environment.NewLine, recipe.Instructions);
             }

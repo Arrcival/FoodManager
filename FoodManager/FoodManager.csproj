@@ -143,6 +143,10 @@
     <Compile Include="Consts.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Entities\FoodRecipe.cs" />
+    <Page Include="Windows\DisplayAllRecipeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\DisplayRecipeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +166,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\DisplayAllRecipeWindow.xaml.cs">
+      <DependentUpon>DisplayAllRecipeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DisplayRecipeWindow.xaml.cs">
       <DependentUpon>DisplayRecipeWindow.xaml</DependentUpon>
@@ -199,8 +206,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="libmongocrypt.dylib" />
-    <None Include="libmongocrypt.so" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -209,9 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="mongocrypt.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

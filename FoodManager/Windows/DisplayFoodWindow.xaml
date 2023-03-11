@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodManager.Windows"
         mc:Ignorable="d"
-        Title="Ingrédients connus" Height="450" Width="700">
+        Title="Known ingredients" Height="450" Width="700">
     <StackPanel>
-        <DataGrid Name="dgFood" AutoGenerateColumns="False" IsReadOnly="True" EnableRowVirtualization="False">
+        <DataGrid Name="dgFood" AutoGenerateColumns="False" IsReadOnly="True" EnableRowVirtualization="False" MaxHeight="400"  VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ingrédient" Width="*" Binding="{Binding Name}" FontSize="14"/>
-                <DataGridTextColumn Header="Unité" Width="150" Binding="{Binding Unit}" FontSize="14"/>
-                <DataGridTextColumn Header="Prix/unité" Width="80" Binding="{Binding Price}" FontSize="14"/>
+                <DataGridTextColumn Header="Ingredient" Width="*" Binding="{Binding Name}" FontSize="14"/>
+                <DataGridTextColumn Header="Unit" Width="100" Binding="{Binding DisplayUnit}" FontSize="14"/>
+                <DataGridTextColumn Header="Price/u" Width="60" Binding="{Binding PricePerUnit}" FontSize="14"/>
+                <DataGridTextColumn Header="Weight/u" Width="60" Binding="{Binding WeightPerUnit}" FontSize="14"/>
+                <DataGridTextColumn Header="Price/kg" Width="60" Binding="{Binding PricePerKg}" FontSize="14"/>
+                <DataGridTextColumn Header="Price ok?" Width="60" Binding="{Binding PriceAccurate}" FontSize="14"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>

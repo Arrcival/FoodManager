@@ -7,7 +7,6 @@ namespace FoodManager.Entities
     {
         public string Name { get; set; }
         public int Portions { get; set; }
-        public string Image { get; set; }
         public string Description { get; set; }
 
 
@@ -26,7 +25,7 @@ namespace FoodManager.Entities
         [JsonIgnore]
         public int TotalTime { get { return CuissonTime + PreparationTime; } }
 
-        public Recipe(string aName, List<string> someInstructions, double aNote, int portions, int aCuisson, int aPreparation, string anURL)
+        public Recipe(string aName, List<string> someInstructions, double aNote, int portions, int aCuisson, int aPreparation)
         {
             Name = aName;
             Instructions = someInstructions;
@@ -34,7 +33,6 @@ namespace FoodManager.Entities
             Portions = portions;
             CuissonTime = aCuisson;
             PreparationTime = aPreparation;
-            Image = anURL;
         }
 
         public string DisplayIngredients

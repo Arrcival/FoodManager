@@ -8,7 +8,6 @@ namespace FoodManager.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Image { get; set; }
 
 
         public int UnitId { get; set; }
@@ -38,6 +37,10 @@ namespace FoodManager.Entities
                 return 0;
             }
         }
+
+        [JsonIgnore]
+        public string DisplayUnit => _loaded ? Unit.NameUnit : string.Empty;
+
 
         public Food(string name)
         {
