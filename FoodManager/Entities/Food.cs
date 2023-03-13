@@ -15,17 +15,17 @@ namespace FoodManager.Entities
         [JsonIgnore]
         public Unit Unit;
 
-        public double? PricePerUnit { get; set; }
-        public double? WeightPerUnit { get; set; }
+        public decimal? PricePerUnit { get; set; }
+        public decimal? WeightPerUnit { get; set; }
         public bool PriceAccurate { get; set; }
 
-        public double? PricePerKg { get; set; }
+        public decimal? PricePerKg { get; set; }
 
         [JsonIgnore]
         bool _loaded = false;
 
         [JsonIgnore]
-        public double Price
+        public decimal Price
         {
             get
             {
@@ -41,10 +41,19 @@ namespace FoodManager.Entities
         [JsonIgnore]
         public string DisplayUnit => _loaded ? Unit.NameUnit : string.Empty;
 
+        public Food() { }
 
-        public Food(string name)
+        public Food(string name, Unit unit, decimal? price, decimal? weight, bool accurate, decimal? priceKg)
         {
+            Id = Database.GetNextFoodId();
             Name = name;
+            Unit = unit;
+            UnitId = Unit.UnitId;
+            PricePerUnit = price != 0 ? price : null;
+            WeightPerUnit = weight != 0 ? weight : null;
+            PriceAccurate = accurate;
+            PricePerKg = priceKg != 0 ? priceKg : null;
+            _loaded = true;
         }
 
         public void Load()

@@ -147,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Windows\AddFoodWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\DisplayRecipeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,6 +173,9 @@
     </Compile>
     <Compile Include="Windows\DisplayAllRecipeWindow.xaml.cs">
       <DependentUpon>DisplayAllRecipeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddFoodWindow.xaml.cs">
+      <DependentUpon>AddFoodWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\DisplayRecipeWindow.xaml.cs">
       <DependentUpon>DisplayRecipeWindow.xaml</DependentUpon>

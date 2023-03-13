@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace FoodManager
 {
     public static class Database
     {
+        public static JsonSerializerOptions Options = new JsonSerializerOptions()
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        };
+
+
         public static List<Food> Foods { get; set; }
         public static List<Recipe> Recipes { get; set; }
         public static List<Unit> Units { get; set; }
@@ -16,6 +23,7 @@ namespace FoodManager
         public static void SaveRecipes() => Save(Consts.RecipeFile, Recipes);
         public static void SaveUnits() => Save(Consts.UnitFile, Units);
         public static void SaveOwnedFoods() => Save(Consts.OwnedFoodFile, OwnedFoods);
+        public static int GetNextFoodId() => Foods.Count + 1;
 
         public static void LoadAll()
         {
@@ -28,7 +36,7 @@ namespace FoodManager
         static void Save(string fileName, object data)
         {
             string pathFile = Path.Combine(Consts.SaveFolder, fileName);
-            string json = JsonSerializer.Serialize(data);
+            string json = JsonSerializer.Serialize(data, Options);
             File.WriteAllText(pathFile, json);
         }
 
@@ -38,7 +46,7 @@ namespace FoodManager
             if (!File.Exists(pathFile))
                 return default;
             string text = File.ReadAllText(pathFile);
-            return JsonSerializer.Deserialize<T>(text);
+            return JsonSerializer.Deserialize<T>(text, Options);
         }
     }
 }
